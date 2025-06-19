@@ -1,9 +1,12 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import AstroPWA from "@vite-pwa/astro";
+import deno from "@deno/astro-adapter";
 
 // https://astro.build/config
 export default defineConfig({
+  output: "server",
+  adapter: deno(),
   integrations: [
     tailwind({
       applyBaseStyles: false,

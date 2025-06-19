@@ -2,6 +2,7 @@
   "version": "5",
   "specifiers": {
     "npm:@astrojs/tailwind@^5.1.1": "5.1.5_astro@5.9.4__vite@6.3.5___picomatch@4.0.2__zod@3.25.67_tailwindcss@3.4.17__postcss@8.5.6_postcss@8.5.6",
+    "npm:@deno/astro-adapter@~0.3.1": "0.3.1_astro@5.9.4__vite@6.3.5___picomatch@4.0.2__zod@3.25.67",
     "npm:@vite-pwa/astro@^1.1.0": "1.1.0_astro@5.9.4__vite@6.3.5___picomatch@4.0.2__zod@3.25.67_vite-plugin-pwa@1.0.0__vite@6.3.5___picomatch@4.0.2__workbox-build@7.3.0___ajv@8.17.1___@babel+core@7.27.4___rollup@2.79.2__workbox-window@7.3.0",
     "npm:alpinejs@^3.14.9": "3.14.9",
     "npm:astro@^5.9.4": "5.9.4_vite@6.3.5__picomatch@4.0.2_zod@3.25.67",
@@ -840,6 +841,12 @@
         "blob-to-buffer",
         "cross-fetch",
         "fontkit"
+      ]
+    },
+    "@deno/astro-adapter@0.3.1_astro@5.9.4__vite@6.3.5___picomatch@4.0.2__zod@3.25.67": {
+      "integrity": "sha512-r7/5vz8G4UHK5bA/+GpB64584bTHPqih9eVdJdabMhwfQdbkgjHNjPV0rZzpfDB6WBoGSByTO8Z9Iz+BP8Y1Nw==",
+      "dependencies": [
+        "astro"
       ]
     },
     "@emnapi/runtime@1.4.3": {
@@ -4908,6 +4915,7 @@
     "packageJson": {
       "dependencies": [
         "npm:@astrojs/tailwind@^5.1.1",
+        "npm:@deno/astro-adapter@~0.3.1",
         "npm:@vite-pwa/astro@^1.1.0",
         "npm:alpinejs@^3.14.9",
         "npm:astro@^5.9.4",
