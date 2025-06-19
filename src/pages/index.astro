@@ -1,10 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import '@/styles/globals.css';
+import Layout from "../layouts/Layout.astro";
+import "@/styles/globals.css";
 ---
 
 <Layout title="Generador de Propuestas con IA">
-  <div class="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800">
+  <div
+    class="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800"
+  >
     <!-- Navigation -->
     <nav class="navbar bg-transparent text-white px-6 py-4">
       <div class="navbar-start">
@@ -19,18 +21,20 @@ import '@/styles/globals.css';
     <div class="hero min-h-screen">
       <div class="hero-content text-center text-white">
         <div class="max-w-4xl">
-          <h1 class="text-6xl font-bold mb-6 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
+          <h1
+            class="text-6xl font-bold mb-6 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent"
+          >
             Crea Propuestas Profesionales en Segundos
           </h1>
           <p class="text-xl mb-8 text-purple-100">
-            Genera propuestas personalizadas con inteligencia artificial. 
-            Ahorra tiempo y sorprende a tus clientes con documentos profesionales.
+            Genera propuestas personalizadas con inteligencia artificial. Ahorra
+            tiempo y sorprende a tus clientes con documentos profesionales.
           </p>
           <div class="flex gap-4 justify-center flex-wrap">
-            <a href="/login" class="btn btn-primary btn-lg">
-              Crear con IA
-            </a>
-            <button class="btn btn-outline btn-lg text-white border-white hover:bg-white hover:text-purple-900">
+            <a href="/login" class="btn btn-primary btn-lg"> Crear con IA </a>
+            <button
+              class="btn btn-outline btn-lg text-white border-white hover:bg-white hover:text-purple-900"
+            >
               Ver Templates
             </button>
           </div>
@@ -71,7 +75,9 @@ import '@/styles/globals.css';
     </div>
 
     <!-- CTA Section -->
-    <div class="py-20 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+    <div
+      class="py-20 bg-gradient-to-r from-purple-600 to-indigo-600 text-white"
+    >
       <div class="container mx-auto px-6 text-center">
         <h2 class="text-4xl font-bold mb-6">
           Comienza a crear propuestas profesionales hoy
@@ -79,9 +85,7 @@ import '@/styles/globals.css';
         <p class="text-xl mb-8">
           Únete a miles de profesionales que ya confían en ProposalAI
         </p>
-        <a href="/login" class="btn btn-primary btn-lg">
-          Empezar Gratis
-        </a>
+        <a href="/login" class="btn btn-primary btn-lg"> Empezar Gratis </a>
       </div>
     </div>
 
@@ -95,3 +99,27 @@ import '@/styles/globals.css';
     </footer>
   </div>
 </Layout>
+
+<script>
+  // Verificar autenticación
+  const currentUser = JSON.parse(
+    sessionStorage.getItem("currentUser") || "null",
+  );
+  if (!currentUser || currentUser.role !== "user") {
+    window.location.href = "/login";
+  }
+
+  // Mostrar nombre del usuario
+  document.getElementById("userName").textContent =
+    currentUser?.name || "Usuario";
+
+  // Tabs functionality
+  document.querySelectorAll("[data-tab]").forEach((tab) => {
+    tab.addEventListener("click", () => {
+      document
+        .querySelectorAll("[data-tab]")
+        .forEach((t) => t.classList.remove("tab-active"));
+      tab.classList.add("tab-active");
+    });
+  });
+</script>
