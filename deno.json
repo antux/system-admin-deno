@@ -1,5 +1,16 @@
 {
   "imports": {
     "unstorage": "npm:unstorage@latest"
+  },
+  "alias": {
+    "@": "./src"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   }
 }
