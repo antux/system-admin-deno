@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "unstorage": "https://esm.sh/unstorage@latest"
+  }
+}
