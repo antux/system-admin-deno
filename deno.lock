@@ -15,9 +15,12 @@
     "npm:@deno/astro-adapter@~0.3.1": "0.3.1_astro@5.9.4__vite@6.3.5___picomatch@4.0.2__zod@3.25.67",
     "npm:@vite-pwa/astro@^1.1.0": "1.1.0_astro@5.9.4__vite@6.3.5___picomatch@4.0.2__zod@3.25.67_vite-plugin-pwa@1.0.0__vite@6.3.5___picomatch@4.0.2__workbox-build@7.3.0___ajv@8.17.1___@babel+core@7.27.4___rollup@2.79.2__workbox-window@7.3.0",
     "npm:alpinejs@^3.14.9": "3.14.9",
+    "npm:astro@*": "5.9.4_vite@6.3.5__picomatch@4.0.2_zod@3.25.67",
     "npm:astro@^5.9.4": "5.9.4_vite@6.3.5__picomatch@4.0.2_zod@3.25.67",
     "npm:daisyui@^4.12.10": "4.12.24",
-    "npm:tailwindcss@^3.4.13": "3.4.17_postcss@8.5.6"
+    "npm:tailwindcss@^3.4.13": "3.4.17_postcss@8.5.6",
+    "npm:unstorage@*": "1.16.0",
+    "npm:unstorage@^1.16.0": "1.16.0"
   },
   "jsr": {
     "@std/cli@1.0.19": {
@@ -4962,6 +4965,7 @@
   },
   "workspace": {
     "dependencies": [
+      "npm:astro@*",
       "npm:unstorage@*"
     ],
     "packageJson": {
@@ -4972,7 +4976,8 @@
         "npm:alpinejs@^3.14.9",
         "npm:astro@^5.9.4",
         "npm:daisyui@^4.12.10",
-        "npm:tailwindcss@^3.4.13"
+        "npm:tailwindcss@^3.4.13",
+        "npm:unstorage@^1.16.0"
       ]
     }
   }
