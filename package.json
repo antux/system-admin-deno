@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "astro": "astro",
-    "preview": "deno run --allow-net --allow-read --allow-env ./dist/server/entry.mjs"
+    "preview": "deno run -A ./dist/server/entry.mjs"
   },
   "dependencies": {
     "@deno/astro-adapter": "^0.3.1",

@@ -1,3 +1,3 @@
-import { start } from "./dist/server/entrypoint.js";
+import { start } from "./dist/server/entry.js";
 
 await start();
