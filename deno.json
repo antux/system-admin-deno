@@ -1,6 +1,6 @@
 {
   "imports": {
-    "unstorage": "npm:unstorage@latest"
+    "unstorage": "https://esm.sh/unstorage@latest"
   },
   "alias": {
     "@": "./src"
