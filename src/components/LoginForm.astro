@@ -1,0 +1,116 @@
+---
+import "@/styles/globals.css";
+---
+
+<div
+  class="min-h-screen bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-700 flex items-center justify-center p-4"
+>
+  <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold text-gray-800 mb-2">Bienvenido</h1>
+      <p class="text-gray-600">Ingresa a tu cuenta</p>
+    </div>
+
+    <form id="loginForm" class="space-y-6">
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text font-medium">Usuario</span>
+        </label>
+        <input
+          type="text"
+          id="username"
+          class="input input-bordered w-full"
+          placeholder="Ingresa tu usuario"
+          required
+        />
+      </div>
+
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text font-medium">Contraseña</span>
+        </label>
+        <input
+          type="password"
+          id="password"
+          class="input input-bordered w-full"
+          placeholder="Ingresa tu contraseña"
+          required
+        />
+      </div>
+
+      <div id="errorMessage" class="alert alert-error hidden">
+        <span>Credenciales incorrectas</span>
+      </div>
+
+      <button type="submit" id="submitBtn" class="btn btn-primary w-full">
+        Iniciar Sesión
+      </button>
+    </form>
+
+    <div class="mt-8 mb-4 p-4 bg-gray-50 rounded-lg">
+      <h3 class="font-semibold text-gray-700 mb-3">Usuarios de prueba:</h3>
+      <div class="space-y-2 text-sm">
+        <div class="flex justify-between">
+          <span class="font-medium">Usuario:</span>
+          <span class="font-mono bg-gray-200 px-2 py-1 rounded"
+            >user / user123</span
+          >
+        </div>
+        <div class="flex justify-between">
+          <span class="font-medium">Admin:</span>
+          <span class="font-mono bg-gray-200 px-2 py-1 rounded"
+            >admin / admin123</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-center gap-4 pt-6">
+      <a href="/" class="btn btn-outline">Volver al Inicio</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById("loginForm");
+  const errorMessage = document.getElementById("errorMessage");
+  const submitBtn = document.getElementById("submitBtn");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    submitBtn.innerHTML =
+      '<span class="loading loading-spinner loading-sm"></span>';
+    submitBtn.disabled = true;
+    errorMessage.classList.add("hidden");
+
+    // Validar credenciales
+    const validCredentials = [
+      { username: "user", password: "user123", role: "user" },
+      { username: "admin", password: "admin123", role: "admin" },
+    ];
+
+    const user = validCredentials.find(
+      (cred) => cred.username === username && cred.password === password,
+    );
+
+    if (user) {
+      // Guardar en sessionStorage
+      sessionStorage.setItem("currentUser", JSON.stringify(user));
+
+      // Redirigir según el rol
+      if (user.role === "admin") {
+        window.location.href = "/admin";
+      } else {
+        window.location.href = "/dashboard";
+      }
+    } else {
+      errorMessage.classList.remove("hidden");
+      submitBtn.innerHTML = "Iniciar Sesión";
+      submitBtn.disabled = false;
+    }
+  });
+</script>

@@ -1,0 +1,76 @@
+---
+interface Props {
+  class?: string;
+  variant?: "primary" | "ghost" | "outline";
+  size?: "sm" | "md" | "lg";
+}
+
+const { class: className = "", variant = "ghost", size = "md" } = Astro.props;
+
+const variantClasses = {
+  primary: "btn-primary",
+  ghost: "btn-ghost",
+  outline: "btn-outline",
+};
+
+const sizeClasses = {
+  sm: "btn-sm",
+  md: "",
+  lg: "btn-lg",
+};
+
+const btnClass = `btn ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+---
+
+<button
+  class={btnClass}
+  x-data="logoutBtn"
+  @click="logout"
+  x-bind:disabled="loading"
+>
+  <svg
+    class="w-4 h-4"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    x-show="!loading"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+    ></path>
+  </svg>
+  <span class="loading loading-spinner loading-sm" x-show="loading"></span>
+  <span x-text="loading ? 'Cerrando...' : 'Cerrar sesión'"></span>
+</button>
+
+<script>
+  import Alpine from "alpinejs";
+
+  document.addEventListener("alpine:init", () => {
+    Alpine.data("logoutBtn", () => ({
+      loading: false,
+
+      async logout() {
+        this.loading = true;
+
+        // Simular delay para mejor UX
+        // await new Promise((resolve) => setTimeout(resolve, 500));
+
+        // Limpiar sesión
+        sessionStorage.removeItem("currentUser");
+
+        // Redirigir al login
+        window.location.href = "/login";
+      },
+    }));
+  });
+
+  // Inicializar Alpine si no está ya inicializado
+  if (!window.Alpine) {
+    window.Alpine = Alpine;
+    Alpine.start();
+  }
+</script>

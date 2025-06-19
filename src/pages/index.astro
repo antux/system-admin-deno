@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '@/styles/globals.css';
+---
+
+<Layout title="Generador de Propuestas con IA">
+  <div class="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800">
+    <!-- Navigation -->
+    <nav class="navbar bg-transparent text-white px-6 py-4">
+      <div class="navbar-start">
+        <a class="btn btn-ghost text-xl font-bold">ProposalAI</a>
+      </div>
+      <div class="navbar-end">
+        <a href="/login" class="btn btn-primary">Iniciar Sesión</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero min-h-screen">
+      <div class="hero-content text-center text-white">
+        <div class="max-w-4xl">
+          <h1 class="text-6xl font-bold mb-6 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
+            Crea Propuestas Profesionales en Segundos
+          </h1>
+          <p class="text-xl mb-8 text-purple-100">
+            Genera propuestas personalizadas con inteligencia artificial. 
+            Ahorra tiempo y sorprende a tus clientes con documentos profesionales.
+          </p>
+          <div class="flex gap-4 justify-center flex-wrap">
+            <a href="/login" class="btn btn-primary btn-lg">
+              Crear con IA
+            </a>
+            <button class="btn btn-outline btn-lg text-white border-white hover:bg-white hover:text-purple-900">
+              Ver Templates
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">
+          ¿Por qué elegir ProposalAI?
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-body text-center">
+              <div class="text-4xl mb-4">🚀</div>
+              <h3 class="card-title justify-center">Rápido y Eficiente</h3>
+              <p>Genera propuestas profesionales en menos de 2 minutos</p>
+            </div>
+          </div>
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-body text-center">
+              <div class="text-4xl mb-4">🎯</div>
+              <h3 class="card-title justify-center">Personalizado</h3>
+              <p>IA que se adapta a tu industria y estilo de negocio</p>
+            </div>
+          </div>
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-body text-center">
+              <div class="text-4xl mb-4">📊</div>
+              <h3 class="card-title justify-center">Resultados Comprobados</h3>
+              <p>Aumenta tu tasa de aceptación hasta un 40%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="py-20 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold mb-6">
+          Comienza a crear propuestas profesionales hoy
+        </h2>
+        <p class="text-xl mb-8">
+          Únete a miles de profesionales que ya confían en ProposalAI
+        </p>
+        <a href="/login" class="btn btn-primary btn-lg">
+          Empezar Gratis
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-10 bg-base-200 text-base-content">
+      <div>
+        <p class="font-bold text-lg">ProposalAI</p>
+        <p>Generador de propuestas con inteligencia artificial</p>
+        <p>© 2024 ProposalAI. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+  </div>
+</Layout>

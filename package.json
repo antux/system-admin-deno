@@ -1,0 +1,21 @@
+{
+  "name": "system-admin-deno",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.9.4",
+    "@astrojs/tailwind": "^5.1.1",
+    "alpinejs": "^3.14.9",
+    "daisyui": "^4.12.10",
+    "tailwindcss": "^3.4.13"
+  },
+  "devDependencies": {
+    "@vite-pwa/astro": "^1.1.0"
+  }
+}

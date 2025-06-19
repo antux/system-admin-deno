@@ -1,0 +1,386 @@
+---
+import "@/styles/globals.css";
+import LogoutBtn from "./LogoutBtn.astro";
+
+const stats = [
+  {
+    title: "Total de propuestas",
+    value: "44",
+    icon: "📄",
+    bgColor: "bg-blue-50",
+    iconColor: "text-blue-600",
+  },
+  {
+    title: "Propuestas aceptadas",
+    value: "9",
+    icon: "✅",
+    bgColor: "bg-green-50",
+    iconColor: "text-green-600",
+  },
+  {
+    title: "Pendientes",
+    value: "35",
+    icon: "⏰",
+    bgColor: "bg-yellow-50",
+    iconColor: "text-yellow-600",
+  },
+  {
+    title: "Creadas con IA",
+    value: "24",
+    icon: "✨",
+    bgColor: "bg-purple-50",
+    iconColor: "text-purple-600",
+  },
+];
+
+const proposals = [
+  {
+    id: 1,
+    title: "Recorrido Virtual de las...",
+    description: "Experiencia Inmersiva en Realidad Virtual",
+    client: "Rab. Tzvi Lipinski",
+    amount: "US$ 14.000",
+    status: "Pendiente",
+    time: "hace 37 minutos",
+    views: "1 veces",
+  },
+  {
+    id: 2,
+    title: "Recorrido Virtual de las...",
+    description: "Experiencia Inmersiva en Realidad Virtual",
+    client: "Rab. Tzvi Lipinski",
+    amount: "US$ 14.000",
+    status: "Pendiente",
+    time: "hace alrededor de 18 horas",
+    views: "1 veces",
+  },
+  {
+    id: 3,
+    title: "Recorrido Virtual de las...",
+    description: "Experiencia Inmersiva en Realidad Virtual",
+    client: "Rab. Tzvi Lipinski",
+    amount: "US$ 14.000",
+    status: "Pendiente",
+    time: "hace alrededor de 20 horas",
+    views: "1 veces",
+  },
+];
+---
+
+<div class="min-h-screen bg-gray-50">
+  <!-- Header -->
+  <div class="bg-white shadow-sm border-b">
+    <div class="px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900">Panel de control</h1>
+          <p class="text-gray-600">
+            Bienvenido <span id="userName">Usuario</span>. Gestiona tus
+            propuestas.
+          </p>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="dropdown dropdown-end">
+            <button class="btn btn-ghost gap-2">
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 2v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
+                ></path>
+              </svg>
+              Acciones rápidas
+            </button>
+            <div
+              class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li><a>Exportar datos</a></li>
+              <li><a>Configuración</a></li>
+            </div>
+          </div>
+          <button class="btn btn-outline gap-2">
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              ></path>
+            </svg>
+            Usar Template
+          </button>
+          <button class="btn btn-primary gap-2">
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+              ></path>
+            </svg>
+            Crear con IA
+          </button>
+          <button class="btn btn-primary gap-2">
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+            </svg>
+            Crear propuesta
+          </button>
+          <LogoutBtn variant="outline" class="gap-2" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="px-6 py-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      {
+        stats.map((stat) => (
+          <div class="bg-white rounded-lg p-4 shadow-sm border">
+            <div class="flex items-center gap-3">
+              <div class={`p-2 rounded-lg ${stat.bgColor}`}>
+                <div class={`text-2xl ${stat.iconColor}`}>{stat.icon}</div>
+              </div>
+              <div>
+                <p class="text-sm text-gray-600 mb-1">{stat.title}</p>
+                <p class="text-2xl font-bold text-gray-900">{stat.value}</p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Main CTA Section -->
+    <div
+      class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 mb-8 text-white relative overflow-hidden"
+    >
+      <div class="relative z-10 max-w-2xl">
+        <h2 class="text-3xl font-bold mb-4">
+          Crea propuestas profesionales en segundos
+        </h2>
+        <p class="text-purple-100 mb-6">
+          Elige entre nuestros templates prediseñados o usa nuestro asistente de
+          IA para generar propuestas personalizadas. Ahorra tiempo y sorprende a
+          tus clientes.
+        </p>
+        <div class="flex gap-4">
+          <button class="btn btn-white text-purple-600 font-semibold">
+            Crear con IA
+          </button>
+          <button
+            class="btn btn-outline border-white text-white hover:bg-white hover:text-purple-600"
+          >
+            Ver Templates
+          </button>
+        </div>
+      </div>
+      <div class="absolute right-8 top-1/2 transform -translate-y-1/2">
+        <div
+          class="w-32 h-32 bg-white bg-opacity-20 rounded-full flex items-center justify-center"
+        >
+          <div class="w-16 h-16 bg-white bg-opacity-30 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search and Filters -->
+    <div class="bg-white rounded-lg p-6 mb-6 shadow-sm border">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex-1 max-w-md">
+          <div class="relative">
+            <svg
+              class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+            <input
+              type="text"
+              placeholder="Buscar propuestas..."
+              class="input input-bordered w-full pl-10"
+              id="searchInput"
+            />
+          </div>
+        </div>
+        <div class="tabs tabs-bordered">
+          <button class="tab tab-active" data-tab="todas">Todas</button>
+          <button class="tab" data-tab="pendientes">Pendientes</button>
+          <button class="tab" data-tab="aceptadas">Aceptadas</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proposals List -->
+    <div class="bg-white rounded-lg shadow-sm border">
+      <div class="p-6 border-b">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg font-semibold">Tus propuestas</h3>
+          <span class="text-gray-500">Mostrando 44 propuestas</span>
+        </div>
+      </div>
+      <div class="divide-y">
+        {
+          proposals.map((proposal) => (
+            <div class="p-6 hover:bg-gray-50 transition-colors">
+              <div class="flex items-start justify-between">
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-2">
+                    <h4 class="font-semibold text-gray-900">
+                      {proposal.title}
+                    </h4>
+                    <span class="badge badge-warning badge-sm">
+                      {proposal.status}
+                    </span>
+                  </div>
+                  <p class="text-gray-600 mb-3">{proposal.description}</p>
+                  <div class="grid grid-cols-2 gap-4 mb-3">
+                    <div>
+                      <span class="text-sm text-gray-500">Cliente</span>
+                      <p class="font-medium">{proposal.client}</p>
+                    </div>
+                    <div>
+                      <span class="text-sm text-gray-500">Monto</span>
+                      <p class="font-medium">{proposal.amount}</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-4 text-sm text-gray-500">
+                    <span class="flex items-center gap-1">
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      {proposal.time}
+                    </span>
+                    <span class="flex items-center gap-1">
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                        />
+                      </svg>
+                      Visto {proposal.views}
+                    </span>
+                  </div>
+                </div>
+                <div class="dropdown dropdown-end">
+                  <button class="btn btn-ghost btn-sm">
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                      />
+                    </svg>
+                  </button>
+                  <div class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                    <li>
+                      <a>Ver propuesta</a>
+                    </li>
+                    <li>
+                      <a>Editar</a>
+                    </li>
+                    <li>
+                      <a>Duplicar</a>
+                    </li>
+                    <li>
+                      <a>Eliminar</a>
+                    </li>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Verificar autenticación
+  const currentUser = JSON.parse(
+    sessionStorage.getItem("currentUser") || "null",
+  );
+  if (!currentUser || currentUser.role !== "user") {
+    window.location.href = "/login";
+  }
+
+  // Mostrar nombre del usuario
+  document.getElementById("userName").textContent =
+    currentUser?.name || "Usuario";
+
+  // Tabs functionality
+  document.querySelectorAll("[data-tab]").forEach((tab) => {
+    tab.addEventListener("click", () => {
+      document
+        .querySelectorAll("[data-tab]")
+        .forEach((t) => t.classList.remove("tab-active"));
+      tab.classList.add("tab-active");
+    });
+  });
+</script>
+
+<!-- Alpine.js CDN -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+></script>
