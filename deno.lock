@@ -4962,7 +4962,7 @@
   },
   "workspace": {
     "dependencies": [
-      "npm:unstorage@latest"
+      "npm:unstorage@*"
     ],
     "packageJson": {
       "dependencies": [

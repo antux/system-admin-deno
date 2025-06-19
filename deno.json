@@ -1,5 +1,6 @@
 {
   "imports": {
+    "astro/": "npm:/astro/",
     "unstorage": "npm:unstorage"
   },
   "alias": {
