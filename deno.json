@@ -13,5 +13,10 @@
     "paths": {
       "@/*": ["./src/*"]
     }
+  },
+  "deploy": {
+    "exclude": [".env"],
+    "include": ["./jsons", "*.ts", "deno.json"],
+    "entrypoint": "./main.ts"
   }
 }
